@@ -1,0 +1,13 @@
+#header{
+   background-color: #f8f8f8f8;
+}
+li{
+   list-style-type: none;
+   cursor: pointer;
+}
+li:first-child{
+   font-size: 20px;
+}
+.nav-pills .nav-link.active{
+   background-color: #a09c9cf8;
+}

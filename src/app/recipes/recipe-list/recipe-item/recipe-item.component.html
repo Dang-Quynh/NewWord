@@ -1,0 +1,11 @@
+<a  routerLinkActive="active" [routerLink]="[index]" class="list-group-item p-2">
+  <div class="d-flex w-100 justify-content-between">
+    <div class="w-75 pr-1">
+      <h5 class="">{{recipe.name}}</h5>
+      <p class="" >{{recipe.description}}</p>
+    </div>
+    <div class="w-25">
+      <img [src]="recipe.imagePath" alt="" class="w-100" >
+    </div>
+  </div>
+</a>

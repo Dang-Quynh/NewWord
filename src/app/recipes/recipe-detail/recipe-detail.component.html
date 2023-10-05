@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <img [src]="recipe.imagePath" alt="" class="img-responsive" style="max-width: 100%">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 py-3">
+    <h1>{{recipe.name}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-dropdown [recipe]="recipe" [id]="id"></app-dropdown>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 py-2">
+    <p>{{recipe.description}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of recipe.ingredients">
+        {{item.name}} - {{item.amount}}
+      </li>
+    </ul>
+  </div>
+</div>

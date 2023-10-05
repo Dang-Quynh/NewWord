@@ -1,0 +1,67 @@
+
+<h3>
+  Edit Recipe
+</h3>
+
+<form [formGroup]="recipeEditForm" (ngSubmit)="onSubmit()">
+  <div class="">
+    <button [disabled]='!recipeEditForm.valid' type="submit" class="btn btn-primary mx-1">
+      Save
+    </button>
+    <button (click)="cancel()" type="button" class="btn btn-danger mx-1">
+      Cancel
+    </button>
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input 
+      formControlName="name" 
+      type="text" 
+      class="form-control" 
+      id="name" 
+      placeholder="Title">
+  </div>
+
+  <div class="form-group">
+    <label for="imageUrl">Image URL</label>
+    <input 
+      formControlName="imageUrl" 
+      type="text" 
+      class="form-control"
+      #imageUrl
+      placeholder="https://www.imageimageUrl">
+  </div>
+  <div class="my-2">
+    <img class="w-75" src="{{imageUrl.value}}" alt="">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea 
+      formControlName="description" 
+      class="form-control" 
+      rows="6" type="text" 
+      id="desription" 
+      placeholder="Type here ... "></textarea>
+  </div>
+
+  <br>
+  <div class="" formArrayName="ingredients">
+    <div class="" *ngFor="let ingredient of recipeEditForm.get('ingredients').controls;let i = index">
+      <div [formGroupName]='i' class="d-flex"> 
+        <div class="flex-grow-1">
+          <input class="form-control" type="text" formControlName="name">
+        </div>
+        <div class="w-15 mx-2">
+          <input class="form-control" type="number" formControlName="amount">
+        </div>
+        <div class="margin">
+          <button type="button" class="btn btn-danger" (click)="deleteIngredient(i)">X</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <button type="button" class="btn btn-success my-3" (click)="addIngredient()">
+    Add Ingredient
+  </button>
+
+</form>

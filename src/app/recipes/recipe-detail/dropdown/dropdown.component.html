@@ -1,0 +1,11 @@
+
+<div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle " data-toggle="dropdown">
+    Manage Recipes 
+  </button>
+  <ul class="dropdown-menu p-3">
+    <li class="dropdown-items my-1" (click)='toShoppingList()'><a>To shopping List</a></li>
+    <li class="dropdown-items my-1" routerLink="edit"><a>Edit Recipe</a></li>
+    <li class="dropdown-items my-1" (click)="deleteRecipe()"><a>delete Recipe</a></li>
+  </ul>
+</div>

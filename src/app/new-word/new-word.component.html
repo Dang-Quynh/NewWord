@@ -1,0 +1,32 @@
+<div>
+  <div class="row my-5" [formGroup]="formFilter">
+    <div class="col-md-6">
+      <label>Nhập từ 0 đến {{items?.length}}</label>
+     <div class="d-flex">
+       <input style="width: 120px" type="number" formControlName="from">
+       <input style="width: 120px" type="number" formControlName="to" >
+     </div>
+    </div>
+    <div class="col-md-6 d-flex">
+      <input type="checkbox" formControlName="random" >
+      <label>Random</label>
+    </div>
+    <div>
+      <button class="btn btn-info" (click)="show()">Search</button>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <div *ngFor="let item of items; let i = index;" class="my-2">
+      <p>{{ i+ 1}}. {{ item.value }}</p>
+      <div class="d-flex" style="gap: 40px">
+        <p *ngFor="let ans of item.answers" class="d-flex">
+          <input type="radio" (click)="ans.checked = true;">
+          <label *ngIf="!ans.checked">{{ ans.value }}</label>
+          <label *ngIf="ans.checked && ans.value !== item.name" style="color: red">{{ ans.value }}</label>
+          <label *ngIf="ans.checked && ans.value == item.name" style="color: green">{{ ans.value }}</label>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
